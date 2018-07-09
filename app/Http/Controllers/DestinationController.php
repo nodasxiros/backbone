@@ -67,10 +67,9 @@ class DestinationController extends Controller
     public function show($id)
     {
         //
-        $destination = Destination::findOrFail($id);
-        $desPhoto = Destination::with('photos')->get();
+        $destination = Destination::with('photos')->find($id);
 
-        return view('destinations.show', compact('destination','desPhoto'));
+        return view('destinations.show')->with('destination', $destination);
     }
 
     /**

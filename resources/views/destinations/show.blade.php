@@ -6,7 +6,6 @@
         <div class="col-md-12">
             <p>Show view</p>
             <p>{{ $destination }}</p>
-            <p>{{ $desPhoto }}</p>
 
         </div>
     </div>
