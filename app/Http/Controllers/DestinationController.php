@@ -55,7 +55,7 @@ class DestinationController extends Controller
             ]);
         }
 
-        return 'Upload Successful';
+        return  redirect()->route('destinations.show', $destination);
     }
 
     /**
