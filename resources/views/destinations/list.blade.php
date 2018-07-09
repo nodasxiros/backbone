@@ -35,6 +35,7 @@
                                 <td>{{$destination->long}}</td>
                                 <td>{{$destination->lat}}</td>
                                 <td>{{$destination->created_at}}</td>
+                                <td><a href="{{action('DestinationController@show', $destination['id'])}}" class="btn btn-warning">Show</a></td>
                             </tr>
                             @endforeach
                             </tbody>

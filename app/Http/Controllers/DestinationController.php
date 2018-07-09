@@ -9,6 +9,12 @@ use App\DestinationsPhoto;
 
 class DestinationController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -61,7 +67,10 @@ class DestinationController extends Controller
     public function show($id)
     {
         //
-        Destination::findOrFail($id);
+        $destination = Destination::findOrFail($id);
+        $desPhoto = Destination::with('photos')->get();
+
+        return view('destinations.show', compact('destination','desPhoto'));
     }
 
     /**
