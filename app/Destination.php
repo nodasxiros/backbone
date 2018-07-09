@@ -9,5 +9,5 @@ class Destination extends Model
     //
     protected $table = 'destinations';
 
-    protected $fillable = ['title', 'image'];
+    protected $fillable = ['title', 'country', 'description', 'long', 'lat'];
 }

@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', 'HomeController@testIndex')->name('test');
+// Route::get('/test', 'HomeController@testIndex')->name('test');
 
 Route::resource('destinations', 'DestinationController');
 

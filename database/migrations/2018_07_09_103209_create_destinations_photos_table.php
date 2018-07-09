@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDestinationsTable extends Migration
+class CreateDestinationsPhotosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateDestinationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('destinations', function (Blueprint $table) {
+        Schema::create('destinations_photos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('country');
-            $table->string('description');
-            $table->decimal('long', 10, 7);
-            $table->decimal('lat', 10, 7);
+            $table->integer('destination_id')->unsigned();
+            $table->foreign('destination_id')->references('id')->on('destinations');
+            $table->string('filename');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateDestinationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('destinations');
+        Schema::dropIfExists('destinations_photos');
     }
 }

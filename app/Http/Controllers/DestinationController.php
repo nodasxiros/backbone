@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Destination;
+use App\DestinationsPhoto;
 
 class DestinationController extends Controller
 {
@@ -27,7 +28,7 @@ class DestinationController extends Controller
      */
     public function create()
     {
-        //
+        return view('destinations.new');
     }
 
     /**
@@ -39,16 +40,16 @@ class DestinationController extends Controller
     public function store(Request $request)
     {
         //
-        $destination = new Destination();
-        $destination->title = $request->title;
-        $destination->image = 'test';
-        $destination->country = 'test';
-        $destination->description = 'test';
-        $destination->lat = 12;
-        $destination->long = 12;
-        $destination->save();
+        $destination = Destination::create($request->all());
+        foreach ($request->photos as $photo) {
+            $filename = $photo->store('photos');
+            DestinationsPhoto::create([
+                'destination_id' => $destination->id,
+                'filename' => $filename
+            ]);
+        }
 
-        return $destination;
+        return 'Upload Successful';
     }
 
     /**
