@@ -16,11 +16,8 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Image</th>
                                 <th scope="col">Country</th>
                                 <th scope="col">Description</th>
-                                <th scope="col">Long</th>
-                                <th scope="col">Lat</th>
                                 <th scope="col">Created</th>
                             </tr>
                             </thead>

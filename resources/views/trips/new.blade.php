@@ -6,11 +6,19 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
-                <form action="/destinations" method="post" enctype="multipart/form-data">
+                <form action="/trips" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     Trip Title:
                     <br />
                     <input type="text" name="title" />
+                    <br /><br />
+                    Destination:
+                    <br />
+                    <select name="destination_id">
+                        @foreach($destinations as $destination)
+                        <option value="{{$destination->id}}">{{$destination->title}}</option>
+                        @endforeach
+                    </select>
                     <br /><br />
                     Description:
                     <br />
@@ -19,6 +27,10 @@
                     Departure date:
                     <br />
                     <input type="text" name="departure_date" />
+                    <br /><br />
+                    Duration:
+                    <br />
+                    <input type="text" name="duration" />
                     <br /><br />
                     Trip photos (can attach more than one):
                     <br />
