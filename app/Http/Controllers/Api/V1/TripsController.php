@@ -1,19 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Trip;
-use App\Destination;
-use App\TripsPhoto;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TripsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -21,12 +15,7 @@ class TripsController extends Controller
      */
     public function index()
     {
-        $trips = Trip::all();
-        foreach($trips as $trip)
-        {
-            $trip->country = $this->getDestination($trip->destination_id);
-        }
-        return view('trips.list')->with('trips',$trips);
+        return Trip::all();
     }
 
     /**
@@ -36,8 +25,7 @@ class TripsController extends Controller
      */
     public function create()
     {
-        $destinations = Destination::all();
-        return view('trips.new')->with('destinations', $destinations);
+        //
     }
 
     /**
@@ -48,16 +36,7 @@ class TripsController extends Controller
      */
     public function store(Request $request)
     {
-        $trip = Trip::create($request->all());
-        foreach ($request->photos as $photo) {
-            $filename = $photo->store('photos');
-            TripsPhoto::create([
-                'trip_id' => $trip->id,
-                'filename' => $filename
-            ]);
-        }
-
-        return  redirect()->route('trips.list', $trip);
+        //
     }
 
     /**
@@ -68,17 +47,7 @@ class TripsController extends Controller
      */
     public function show($id)
     {
-        $trip = Trip::with('photos')->find($id);
-
-        $trip->destinationName = $this->getDestination($trip->destination_id);
-
-        return view('trips.show')->with('trip', $trip);
-    }
-
-    public function getDestination($id)
-    {
-        $destination = Destination::find($id);
-        return $destination->title;
+        //
     }
 
     /**

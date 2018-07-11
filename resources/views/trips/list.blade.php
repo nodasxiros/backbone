@@ -26,6 +26,7 @@
                             <tr>
                                 <th scope="row">{{$trips->id}}</th>
                                 <td>{{$trips->title}}</td>
+                                <td>{{$trips->country}}</td>
                                 <td>{{$trips->description}}</td>
                                 <td>{{$trips->created_at}}</td>
                                 <td><a href="{{action('TripsController@show', $trips['id'])}}" class="btn btn-warning">Show</a></td>
