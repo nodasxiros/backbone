@@ -19,10 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('/test', 'HomeController@testIndex')->name('test');
-
 Route::resource('destinations', 'DestinationController');
 
-// Route::get('destinations', 'DestinationController@index');
-// Route::post('destinations', 'DestinationController@store');
-// Route::delete('destinations', 'DestinationController@destroy');
+Route::resource('trips', 'TripsController');

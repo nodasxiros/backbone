@@ -8,27 +8,19 @@
                 <div class="card-body">
                 <form action="/destinations" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
-                    Destination Title:
+                    Trip Title:
                     <br />
                     <input type="text" name="title" />
-                    <br /><br />
-                    Country:
-                    <br />
-                    <input type="text" name="country" />
                     <br /><br />
                     Description:
                     <br />
                     <input type="text" name="description" />
                     <br /><br />
-                    Lat:
+                    Departure date:
                     <br />
-                    <input type="text" name="lat" />
+                    <input type="text" name="departure_date" />
                     <br /><br />
-                    Long:
-                    <br />
-                    <input type="text" name="long" />
-                    <br /><br />
-                    Destination photos (can attach more than one):
+                    Trip photos (can attach more than one):
                     <br />
                     <input type="file" name="photos[]" multiple />
                     <br /><br />

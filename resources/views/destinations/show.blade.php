@@ -11,7 +11,7 @@
             <p>{{ $destination->lat }}</p><br/>
             <p>{{ $destination->long }}</p><br/>
             @foreach($destination->photos as $photo)
-            <img src="/storage/{{ $photo->filename }}"/>
+            <img src="/storage/{{ $photo->filename }}" class="img-fluid"/>
             @endforeach
         </div>
     </div>
